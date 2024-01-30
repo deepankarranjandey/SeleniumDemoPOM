@@ -1,5 +1,6 @@
-package testcases;
+package com.qacart.todo.testcases;
 
+import com.qacart.todo.factory.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,9 +15,8 @@ public class UserTest {
     @Test
     public void userRegistrationfunctionality()
     {
-        WebDriver driver=new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        WebDriver driver=new DriverFactory().initializeDriver();
+
         driver.get("https://todo.qacart.com/signup");
         driver.findElement(By.cssSelector("input[data-testid='first-name']")).sendKeys("Deepankar");
         driver.findElement(By.cssSelector("input[data-testid='last-name']")).sendKeys("Dey");
