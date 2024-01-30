@@ -1,16 +1,15 @@
 package com.qacart.todo.testcases;
 
-import com.github.javafaker.Faker;
+
 import com.qacart.todo.base.BaseTest;
-import com.qacart.todo.factory.DriverFactory;
+
 import com.qacart.todo.models.User;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
+
 
 public class UserTest extends BaseTest {
 
@@ -18,12 +17,9 @@ public class UserTest extends BaseTest {
     @Test
     public void userRegistrationfunctionality()
     {
-        Faker faker=new Faker();
-        String  firstName=faker.name().firstName();
-        String  lastName=faker.name().lastName();
-        String email=faker.internet().safeEmailAddress();
 
-        User user=new User(firstName,lastName,email,"Test@123");
+
+        User user=new User();
 
         driver.get("https://todo.qacart.com/signup");
         driver.findElement(By.cssSelector("input[data-testid='first-name']")).sendKeys(user.getFirstName());
