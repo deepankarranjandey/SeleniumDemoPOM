@@ -11,7 +11,7 @@ import java.time.Duration;
 public class TodoTest {
 
 
-    @Test(priority = 1)
+    @Test(priority = 0)
     public void shouldBeAbletoAddTodo()
     {
         WebDriver driver=new ChromeDriver();
@@ -31,7 +31,7 @@ public class TodoTest {
         driver.quit();
     }
 
-    @Test(priority = 2)
+    @Test(priority = 1)
     public void deleteTodo()
     {
         WebDriver driver=new ChromeDriver();
