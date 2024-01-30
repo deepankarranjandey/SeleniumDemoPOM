@@ -4,6 +4,9 @@ package com.qacart.todo.testcases;
 import com.qacart.todo.base.BaseTest;
 
 import com.qacart.todo.models.User;
+import com.qacart.todo.pages.NewTodoPage;
+import com.qacart.todo.pages.RegisterPage;
+import com.qacart.todo.pages.TodoPage;
 import org.openqa.selenium.By;
 
 import org.testng.Assert;
@@ -22,17 +25,9 @@ public class TodoTest extends BaseTest {
         User user=new User();
 
         driver.get("https://todo.qacart.com/signup");
-        driver.findElement(By.cssSelector("input[data-testid='first-name']")).sendKeys(user.getFirstName());
-        driver.findElement(By.cssSelector("input[data-testid='last-name']")).sendKeys(user.getLastName());
-        driver.findElement(By.cssSelector("input[type='email']")).sendKeys(user.getEmail());
-        driver.findElement(By.cssSelector("input[data-testid='password']")).sendKeys(user.getPassword());
-        driver.findElement(By.cssSelector("input[data-testid='confirm-password']")).sendKeys(user.getPassword());
-        driver.findElement(By.cssSelector("button[type='button']")).click();
-        boolean isWelcomeDisplayed = driver.findElement(By.cssSelector("h2[data-testid='welcome']")).isDisplayed();
-        Assert.assertTrue(isWelcomeDisplayed);
-        driver.findElement(By.cssSelector(".MuiIconButton-label")).click();
-        driver.findElement(By.cssSelector("input[data-testid='new-todo']")).sendKeys("Deep Test");
-        driver.findElement(By.cssSelector("button[data-testid='submit-newTask']")).click();
+        new RegisterPage().register(driver,user);
+        new  TodoPage().clickOnPlusButton(driver);
+        new NewTodoPage().addTodo(driver, "Deep Test");
         String todoText= driver.findElement(By.cssSelector("h2[data-testid='todo-text']")).getText();
         Assert.assertEquals(todoText,"Deep Test");
 
@@ -46,17 +41,9 @@ public class TodoTest extends BaseTest {
         User user=new User();
 
         driver.get("https://todo.qacart.com/signup");
-        driver.findElement(By.cssSelector("input[data-testid='first-name']")).sendKeys(user.getFirstName());
-        driver.findElement(By.cssSelector("input[data-testid='last-name']")).sendKeys(user.getLastName());
-        driver.findElement(By.cssSelector("input[type='email']")).sendKeys(user.getEmail());
-        driver.findElement(By.cssSelector("input[data-testid='password']")).sendKeys(user.getPassword());
-        driver.findElement(By.cssSelector("input[data-testid='confirm-password']")).sendKeys(user.getPassword());
-        driver.findElement(By.cssSelector("button[type='button']")).click();
-        boolean isWelcomeDisplayed = driver.findElement(By.cssSelector("h2[data-testid='welcome']")).isDisplayed();
-        Assert.assertTrue(isWelcomeDisplayed);
-        driver.findElement(By.cssSelector(".MuiIconButton-label")).click();
-        driver.findElement(By.cssSelector("input[data-testid='new-todo']")).sendKeys("Deep Test");
-        driver.findElement(By.cssSelector("button[data-testid='submit-newTask']")).click();
+        new RegisterPage().register(driver,user);
+        new TodoPage().clickOnPlusButton(driver);
+        new NewTodoPage().addTodo(driver, "Deep Test");
         String todoText= driver.findElement(By.cssSelector("h2[data-testid='todo-text']")).getText();
         Assert.assertEquals(todoText,"Deep Test");
         driver.findElement(By.xpath("(//span[@class='MuiIconButton-label'])[3]")).click();
