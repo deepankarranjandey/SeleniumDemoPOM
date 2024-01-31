@@ -5,6 +5,11 @@ import org.openqa.selenium.WebDriver;
 
 public class TodoPage {
 
+    //constructor
+
+
+
+
     //elements
     private  final  By welcomeMessage= By.cssSelector("h2[data-testid='welcome']");
     private final By plusButton = By.cssSelector("span.MuiIconButton-label");
@@ -12,6 +17,29 @@ public class TodoPage {
     private final By deleteIcon =By.xpath("(//span[@class='MuiIconButton-label'])[3]");
 
     private final By noTodosMessage= By.cssSelector("h4[data-testid='no-todos']");
+
+    private static TodoPage todoPage;
+
+
+    // constructor
+
+    private  TodoPage()
+    {
+
+    }
+
+    public static TodoPage getInstance()
+    {
+
+        if(todoPage == null)
+        {
+            todoPage=new TodoPage();
+        }
+        return todoPage;
+
+    }
+
+
 
     //methods, steps
 

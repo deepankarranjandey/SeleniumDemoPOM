@@ -21,10 +21,9 @@ public class UserTest extends BaseTest {
     {
         User user=new User();
         driver.get("https://todo.qacart.com/signup");
-        new RegisterPage().register(driver,user);
-        boolean isWelcomeDisplayed = new TodoPage().isWelcomeMessageIsDisplayed(driver);
+        RegisterPage.getInstance().register(driver,user);
+        boolean isWelcomeDisplayed =TodoPage.getInstance().isWelcomeMessageIsDisplayed(driver);
         Assert.assertTrue(isWelcomeDisplayed);
-        driver.quit();
     }
 
 }
