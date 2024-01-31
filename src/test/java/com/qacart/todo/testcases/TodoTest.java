@@ -7,7 +7,7 @@ import com.qacart.todo.models.User;
 import com.qacart.todo.pages.NewTodoPage;
 import com.qacart.todo.pages.RegisterPage;
 import com.qacart.todo.pages.TodoPage;
-import org.openqa.selenium.By;
+
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -23,8 +23,7 @@ public class TodoTest extends BaseTest {
 
 
         User user=new User();
-
-        driver.get("https://todo.qacart.com/signup");
+        RegisterPage.getInstance().load(driver);
         RegisterPage.getInstance().register(driver,user);
         TodoPage.getInstance().clickOnPlusButton(driver);
         NewTodoPage.getInstance().addTodo(driver, "Deep Test");
@@ -39,8 +38,7 @@ public class TodoTest extends BaseTest {
 
 
         User user=new User();
-
-        driver.get("https://todo.qacart.com/signup");
+        RegisterPage.getInstance().load(driver);
         RegisterPage.getInstance().register(driver,user);
         TodoPage.getInstance().clickOnPlusButton(driver);
         NewTodoPage.getInstance().addTodo(driver, "Deep Test");
