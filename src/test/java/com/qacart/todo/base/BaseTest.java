@@ -10,14 +10,12 @@ public class BaseTest {
 
 
     @BeforeMethod
-    public void setUp()
-    {
-        driver=new DriverFactory().initializeDriver();
+    public void setUp() {
+        driver = new DriverFactory().initializeDriver();
     }
 
     @AfterMethod
-    public void tearDown()
-    {
+    public void tearDown() {
         driver.quit();
     }
 
