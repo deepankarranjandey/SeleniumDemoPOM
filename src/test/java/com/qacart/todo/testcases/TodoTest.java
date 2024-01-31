@@ -28,7 +28,7 @@ public class TodoTest extends BaseTest {
         new RegisterPage().register(driver,user);
         new  TodoPage().clickOnPlusButton(driver);
         new NewTodoPage().addTodo(driver, "Deep Test");
-        String todoText= driver.findElement(By.cssSelector("h2[data-testid='todo-text']")).getText();
+        String todoText= new TodoPage().getTodotext(driver);
         Assert.assertEquals(todoText,"Deep Test");
 
     }
@@ -44,11 +44,9 @@ public class TodoTest extends BaseTest {
         new RegisterPage().register(driver,user);
         new TodoPage().clickOnPlusButton(driver);
         new NewTodoPage().addTodo(driver, "Deep Test");
-        String todoText= driver.findElement(By.cssSelector("h2[data-testid='todo-text']")).getText();
-        Assert.assertEquals(todoText,"Deep Test");
-        driver.findElement(By.xpath("(//span[@class='MuiIconButton-label'])[3]")).click();
-        String checkTodo = driver.findElement(By.cssSelector("h4[data-testid='no-todos']")).getText();
-        Assert.assertEquals(checkTodo,"No Available Todos");
+        new TodoPage().deleteTodo(driver);
+        boolean isTodosDisplayed = new TodoPage().isNoTodoDisplayed(driver);
+        Assert.assertTrue(isTodosDisplayed);
 
     }
 }
