@@ -49,4 +49,9 @@ private static RegisterPage registerPage;
         driver.findElement(submitButton).click();
     }
 
+    public void registerUsingApi()
+    {
+
+    }
+
 }
