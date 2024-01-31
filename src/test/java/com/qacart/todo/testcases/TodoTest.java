@@ -27,7 +27,7 @@ public class TodoTest extends BaseTest {
         driver.get("https://todo.qacart.com/signup");
         RegisterPage.getInstance().register(driver,user);
         TodoPage.getInstance().clickOnPlusButton(driver);
-        new NewTodoPage().addTodo(driver, "Deep Test");
+        NewTodoPage.getInstance().addTodo(driver, "Deep Test");
         String todoText= TodoPage.getInstance().getTodotext(driver);
         Assert.assertEquals(todoText,"Deep Test");
 
@@ -43,7 +43,7 @@ public class TodoTest extends BaseTest {
         driver.get("https://todo.qacart.com/signup");
         RegisterPage.getInstance().register(driver,user);
         TodoPage.getInstance().clickOnPlusButton(driver);
-        new NewTodoPage().addTodo(driver, "Deep Test");
+        NewTodoPage.getInstance().addTodo(driver, "Deep Test");
         TodoPage.getInstance().deleteTodo(driver);
         boolean isTodosDisplayed = TodoPage.getInstance().isNoTodoDisplayed(driver);
         Assert.assertTrue(isTodosDisplayed);

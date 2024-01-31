@@ -5,10 +5,34 @@ import org.openqa.selenium.WebDriver;
 
 public class NewTodoPage {
 
+    private static NewTodoPage newTodoPage;
+
     //elements
 
     private final By newTodoInput = By.cssSelector("input[data-testid='new-todo']");
     private final By newTodoSubmit = By.cssSelector("button[data-testid='submit-newTask']");
+
+
+
+    // constructor
+
+    private NewTodoPage()
+    {
+
+    }
+
+    public static NewTodoPage getInstance()
+    {
+        if (newTodoPage == null)
+        {
+            newTodoPage = new NewTodoPage();
+        }
+
+        return newTodoPage;
+
+    }
+
+
 
     //methods
 
