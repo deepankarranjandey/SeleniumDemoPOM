@@ -12,8 +12,7 @@ public class NewTodoPage {
 
     //methods
 
-    public void addTodo(WebDriver driver, String item)
-    {
+    public void addTodo(WebDriver driver, String item) {
         driver.findElement(By.cssSelector("input[data-testid='new-todo']")).sendKeys(item);
         driver.findElement(By.cssSelector("button[data-testid='submit-newTask']")).click();
     }
