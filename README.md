@@ -20,9 +20,9 @@ The Page Object Model (POM) is a design pattern in software automation testing, 
 - **Reduced Code Duplication**: Centralizes common web page interactions, reducing the duplication of code.
 
 ### Tools Used:
-1. Selenium
-2. TestNG
-3. Rest Assured
-4. Allure reporting
+1. **Selenium**
+2. **TestNG**
+3. **Rest Assured**
+4. **Allure reporting**
    
 
