@@ -17,7 +17,7 @@ import java.io.InputStream;
 
 public class BaseTest {
 
-    protected ThreadLocal<WebDriver> driver =new ThreadLocal<>();
+    protected ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
 
     @BeforeMethod
@@ -30,24 +30,21 @@ public class BaseTest {
     public void tearDown(ITestResult result) {
 
         String testCaseName = result.getMethod().getMethodName();
-        File destFile= new File("target" + File.separator + "screenshots" + File.separator + testCaseName + ".png"  );
+        File destFile = new File("target" + File.separator + "screenshots" + File.separator + testCaseName + ".png");
         takeScreenshot(destFile);
         driver.get().quit();
 
     }
 
-    public void takeScreenshot(File destFile)
-    {
-        File file= ((TakesScreenshot) driver.get()).getScreenshotAs(OutputType.FILE);
+    public void takeScreenshot(File destFile) {
+        File file = ((TakesScreenshot) driver.get()).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(file,destFile);
-            InputStream is= new FileInputStream(destFile);
+            FileUtils.copyFile(file, destFile);
+            InputStream is = new FileInputStream(destFile);
             Allure.addAttachment("screenshot", is);
 
-        }
-        catch (IOException e)
-        {
-            throw  new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
