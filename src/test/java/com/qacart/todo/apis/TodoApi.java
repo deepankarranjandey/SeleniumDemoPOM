@@ -11,24 +11,21 @@ public class TodoApi {
 
     private static TodoApi todoApi;
 
-    private TodoApi()
-    {}
+    private TodoApi() {
+    }
 
-    public static TodoApi getInstance()
-    {
-        if(todoApi == null)
-        {
-            todoApi=new TodoApi();
+    public static TodoApi getInstance() {
+        if (todoApi == null) {
+            todoApi = new TodoApi();
         }
         return todoApi;
     }
 
-    public Response addTodo(User user, String item)
-    {
+    public Response addTodo(User user, String item) {
         return given()
                 .baseUri(ConfigUtils.getInstance().getBaseUrl())
                 .contentType(ContentType.JSON)
-                .body("{\"item\":\""+ item + "\" , \"isCompleted\":false}")
+                .body("{\"item\":\"" + item + "\" , \"isCompleted\":false}")
                 .auth().oauth2(user.getAccessToken())
                 .when()
                 .post("/api/v1/tasks")
