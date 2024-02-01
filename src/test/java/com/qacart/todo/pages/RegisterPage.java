@@ -58,6 +58,7 @@ private static RegisterPage registerPage;
         String access_token=res.path("access_token");
         String userID=res.path("userID");
         String firstName=res.path("firstName");
+        user.setAccessToken(access_token);
 
         Cookie accessTokenCookie= new Cookie("access_token", access_token);
         Cookie userIDCookie= new Cookie("userID", userID);

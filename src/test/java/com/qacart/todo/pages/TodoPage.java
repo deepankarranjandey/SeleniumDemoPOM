@@ -1,5 +1,6 @@
 package com.qacart.todo.pages;
 
+import com.qacart.todo.utils.ConfigUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -62,6 +63,11 @@ public class TodoPage {
     {
         driver.findElement(deleteIcon).click();
 
+    }
+
+    public void load(WebDriver driver)
+    {
+        driver.get(ConfigUtils.getInstance().getBaseUrl() +"/todo");
     }
 
     public boolean isNoTodoDisplayed(WebDriver driver)

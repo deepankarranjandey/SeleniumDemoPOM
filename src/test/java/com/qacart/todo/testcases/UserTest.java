@@ -17,9 +17,9 @@ public class UserTest extends BaseTest {
     public void userRegistrationfunctionality()
     {
         User user=new User();
-        RegisterPage.getInstance().load(driver);
-        RegisterPage.getInstance().register(driver,user);
-        boolean isWelcomeDisplayed =TodoPage.getInstance().isWelcomeMessageIsDisplayed(driver);
+        RegisterPage.getInstance().load(driver.get());
+        RegisterPage.getInstance().register(driver.get(),user);
+        boolean isWelcomeDisplayed =TodoPage.getInstance().isWelcomeMessageIsDisplayed(driver.get());
         Assert.assertTrue(isWelcomeDisplayed);
     }
 

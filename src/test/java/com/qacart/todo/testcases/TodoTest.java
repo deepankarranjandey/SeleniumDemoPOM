@@ -23,11 +23,11 @@ public class TodoTest extends BaseTest {
 
 
         User user=new User();
-        RegisterPage.getInstance().load(driver);
-        RegisterPage.getInstance().registerUsingApi(driver,user);
-        TodoPage.getInstance().clickOnPlusButton(driver);
-        NewTodoPage.getInstance().addTodo(driver, "Deep Test");
-        String todoText= TodoPage.getInstance().getTodotext(driver);
+        RegisterPage.getInstance().load(driver.get());
+        RegisterPage.getInstance().registerUsingApi(driver.get(),user);
+        TodoPage.getInstance().clickOnPlusButton(driver.get());
+        NewTodoPage.getInstance().addTodo(driver.get(), "Deep Test");
+        String todoText= TodoPage.getInstance().getTodotext(driver.get());
         Assert.assertEquals(todoText,"Deep Test");
 
     }
@@ -38,12 +38,12 @@ public class TodoTest extends BaseTest {
 
 
         User user=new User();
-        RegisterPage.getInstance().load(driver);
-        RegisterPage.getInstance().registerUsingApi(driver,user);
-        TodoPage.getInstance().clickOnPlusButton(driver);
-        NewTodoPage.getInstance().addTodo(driver, "Deep Test");
-        TodoPage.getInstance().deleteTodo(driver);
-        boolean isTodosDisplayed = TodoPage.getInstance().isNoTodoDisplayed(driver);
+        RegisterPage.getInstance().load(driver.get());
+        RegisterPage.getInstance().registerUsingApi(driver.get(),user);
+        NewTodoPage.getInstance().addTodoUsingApi(user,"Deep Test");
+        TodoPage.getInstance().load(driver.get());
+        TodoPage.getInstance().deleteTodo(driver.get());
+        boolean isTodosDisplayed = TodoPage.getInstance().isNoTodoDisplayed(driver.get());
         Assert.assertTrue(isTodosDisplayed);
 
     }
