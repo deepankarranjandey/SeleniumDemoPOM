@@ -1,8 +1,11 @@
 package com.qacart.todo.pages;
 
+import com.qacart.todo.apis.UserAPI;
 import com.qacart.todo.models.User;
 import com.qacart.todo.utils.ConfigUtils;
+import io.restassured.response.Response;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 
 public class RegisterPage {
@@ -49,8 +52,23 @@ private static RegisterPage registerPage;
         driver.findElement(submitButton).click();
     }
 
-    public void registerUsingApi()
+    public void registerUsingApi(WebDriver driver, User user)
     {
+        Response res= UserAPI.getInstance().register(user);
+        String access_token=res.path("access_token");
+        String userID=res.path("userID");
+        String firstName=res.path("firstName");
+
+        Cookie accessTokenCookie= new Cookie("access_token", access_token);
+        Cookie userIDCookie= new Cookie("userID", userID);
+        Cookie firstNameCookie= new Cookie("firstName", firstName);
+
+        RegisterPage.getInstance().load(driver);
+        driver.manage().addCookie(accessTokenCookie);
+        driver.manage().addCookie(userIDCookie);
+        driver.manage().addCookie(firstNameCookie);
+        RegisterPage.getInstance().load(driver);
+
 
     }
 

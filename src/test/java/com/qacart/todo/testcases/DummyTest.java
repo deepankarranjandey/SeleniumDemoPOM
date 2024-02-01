@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 public class DummyTest extends BaseTest {
 
     @Test
-    public void dummy() throws InterruptedException {
+        public void dummy() throws InterruptedException {
         User user = new User();
 
         Response res= UserAPI.getInstance().register(user);

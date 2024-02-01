@@ -24,7 +24,7 @@ public class TodoTest extends BaseTest {
 
         User user=new User();
         RegisterPage.getInstance().load(driver);
-        RegisterPage.getInstance().register(driver,user);
+        RegisterPage.getInstance().registerUsingApi(driver,user);
         TodoPage.getInstance().clickOnPlusButton(driver);
         NewTodoPage.getInstance().addTodo(driver, "Deep Test");
         String todoText= TodoPage.getInstance().getTodotext(driver);
@@ -39,7 +39,7 @@ public class TodoTest extends BaseTest {
 
         User user=new User();
         RegisterPage.getInstance().load(driver);
-        RegisterPage.getInstance().register(driver,user);
+        RegisterPage.getInstance().registerUsingApi(driver,user);
         TodoPage.getInstance().clickOnPlusButton(driver);
         NewTodoPage.getInstance().addTodo(driver, "Deep Test");
         TodoPage.getInstance().deleteTodo(driver);
