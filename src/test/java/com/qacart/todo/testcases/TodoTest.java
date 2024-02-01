@@ -17,7 +17,7 @@ import org.testng.annotations.Test;
 public class TodoTest extends BaseTest {
 
 
-    @Test
+    @Test(description = "Create a Todo")
     public void shouldBeAbletoAddTodo()
     {
 
@@ -32,7 +32,7 @@ public class TodoTest extends BaseTest {
 
     }
 
-    @Test
+    @Test (description = "Create a new TODO and delete the same TODO")
     public void deleteTodo()
     {
 

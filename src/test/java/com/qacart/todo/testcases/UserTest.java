@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 public class UserTest extends BaseTest {
 
 
-    @Test
+    @Test(description = "Register a new account")
     public void userRegistrationfunctionality()
     {
         User user=new User();
