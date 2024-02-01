@@ -76,6 +76,8 @@ private static RegisterPage registerPage;
         RegisterPage.getInstance().load(driver);
 
 
+
+
     }
 
 }
