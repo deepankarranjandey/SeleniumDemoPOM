@@ -16,25 +16,20 @@ public class NewTodoPage {
     private final By newTodoSubmit = By.cssSelector("button[data-testid='submit-newTask']");
 
 
-
     // constructor
 
-    private NewTodoPage()
-    {
+    private NewTodoPage() {
 
     }
 
-    public static NewTodoPage getInstance()
-    {
-        if (newTodoPage == null)
-        {
+    public static NewTodoPage getInstance() {
+        if (newTodoPage == null) {
             newTodoPage = new NewTodoPage();
         }
 
         return newTodoPage;
 
     }
-
 
 
     //methods
@@ -44,9 +39,9 @@ public class NewTodoPage {
         driver.findElement(By.cssSelector("input[data-testid='new-todo']")).sendKeys(item);
         driver.findElement(By.cssSelector("button[data-testid='submit-newTask']")).click();
     }
+
     @Step("create a new TODO using API")
-    public void addTodoUsingApi(User user, String item)
-    {
+    public void addTodoUsingApi(User user, String item) {
         TodoApi.getInstance().addTodo(user, item);
     }
 
